@@ -1,46 +1,27 @@
 const express = require("express");
-const Event = require("../models/eventModel");
+const {
+  getEvents,
+  getEvent,
+  createEvent,
+  deleteEvent,
+  updateEvent,
+} = require("../controllers/eventController");
 
 const router = express.Router();
 
 //GET ALL EVENTS
-router.get("/", (req, res) => {
-  res.send("get all events");
-});
+router.get("/", getEvents);
 
 //GET SINGLE EVENT
-router.get("/:id", (req, res) => {
-  res.send("get single event");
-});
+router.get("/:id", getEvent);
 
 //POST NEW EVENT
-router.post("/", async (req, res) => {
-  const { title, startDate, endDate, location, industry, description } =
-    req.body;
-
-  try {
-    const event = await Event.create({
-      title,
-      startDate,
-      endDate,
-      location,
-      industry,
-      description,
-    });
-    res.status(200).json(event);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
+router.post("/", createEvent);
 
 //DELETE SINGLE EVENT
-router.delete("/:id", (req, res) => {
-  res.send("delete single event");
-});
+router.delete("/:id", deleteEvent);
 
 //PATCH AN EVENT
-router.patch("/:id", (req, res) => {
-  res.send("patch an event");
-});
+router.patch("/:id", updateEvent);
 
 module.exports = router;

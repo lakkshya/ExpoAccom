@@ -8,6 +8,10 @@ const eventSchema = new Schema(
       type: String,
       required: true,
     },
+    logo: {
+      type: String,
+      required: true,
+    },
     startDate: {
       type: Date,
       required: true,
@@ -21,6 +25,22 @@ const eventSchema = new Schema(
       required: true,
     },
     industry: {
+      type: String,
+      required: true,
+    },
+    organizer: {
+      type: String,
+      required: true,
+    },
+    foundedIn: {
+      type: Date,
+      required: true,
+    },
+    frequency: {
+      type: Number,
+      required: true,
+    },
+    website: {
       type: String,
       required: true,
     },
