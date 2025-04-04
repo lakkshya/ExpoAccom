@@ -1,92 +1,232 @@
+import {
+  FaBolt,
+  FaUserCheck,
+  FaBalanceScale,
+  FaLightbulb,
+} from "react-icons/fa";
+import Navbar from "../components/Navbar";
+
 const About = () => {
+  const values = [
+    {
+      title: "Efficiency",
+      icon: <FaBolt />,
+      description:
+        "We prioritize streamlining processes to save our clients time and effort.",
+    },
+    {
+      title: "Personalization",
+      icon: <FaUserCheck />,
+      description:
+        "We tailor our services to meet the unique needs of each exhibitor.",
+    },
+    {
+      title: "Integrity",
+      icon: <FaBalanceScale />,
+      description: "We uphold transparency and honesty in all our dealings.",
+    },
+    {
+      title: "Innovation",
+      icon: <FaLightbulb />,
+      description:
+        "We leverage technology to enhance our services and client experience.",
+    },
+  ];
+
+  const whyChooseUs = [
+    {
+      title: "Extensive Network",
+      description:
+        "Access to a wide range of hotels and accommodations worldwide.",
+    },
+    {
+      title: "Competitive Pricing",
+      description:
+        "Benefit from exclusive rates and discounts negotiated on your behalf.",
+    },
+    {
+      title: "Seamless Experience",
+      description:
+        "Enjoy a hassle-free booking process with dedicated support at every step.",
+    },
+    {
+      title: "Customized Solutions",
+      description:
+        "Receive services tailored to your specific exhibition needs and preferences.",
+    },
+  ];
+
   return (
-    <div>
+    <div className="relative">
+      <Navbar />
       <main>
-        <section className="flex !my-10 !px-10">
-          <div className="w-2/5">
-            <h1 className="text-[5rem]">About Us</h1>
-          </div>
-          <div className="w-3/5">
-            <p className="text-[0.925rem]">
-              At ExpoAccom, we bridge the gap between business travel and
-              cutting-edge technology to provide seamless accommodation and
-              travel solutions for professionals attending exhibitions
-              worldwide. Our mission is to empower businesses with a smart,
-              efficient, and hassle-free way to plan, book, and manage their
-              expo trips—all within a user-friendly web environment. By
-              leveraging advanced automation and a customer-first approach, we
-              ensure that every booking is personalized, cost-effective, and
-              stress-free. Whether you're a small business or a multinational
-              corporation, our platform offers the flexibility and efficiency
-              you need to make the most of your trade fair experience.
-            </p>
-          </div>
-        </section>
-
-        <section className="!my-10">
-          <div>
-            <h2 className="text-[3rem]">
-              ESS * PROCESS * PROCESS * PROCESS * PROCESS * P
-            </h2>
-            <h2 className="text-[3rem]">
-              ESS * PROCESS * PROCESS * PROCESS * PROCESS * P
-            </h2>
-          </div>
-          <div className="grid grid-cols-3 gap-5 !m-10">
-            <div className="flex flex-col">
-              <h3 className="text-[3rem]">01</h3>
-              <h3 className="text-[3rem]">Explore</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-                hic nulla natus optio velit eligendi impedit illum modi. Odit ea
-                sunt tenetur quo dolorum molestiae pariatur earum perferendis,
-                architecto doloremque.
-              </p>
+        <section className="flex justify-center bg-[#ff6b35] !py-28 md:!py-35">
+          <div className="w-9/10 flex flex-col gap-5 items-center">
+            <div className="text-white">
+              <h1 className="text-[2.5rem] md:text-[5rem]">About Us</h1>
             </div>
-
-            <div className="flex flex-col">
-              <h3 className="text-[3rem]">01</h3>
-              <h3 className="text-[3rem]">Explore</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-                hic nulla natus optio velit eligendi impedit illum modi. Odit ea
-                sunt tenetur quo dolorum molestiae pariatur earum perferendis,
-                architecto doloremque.
-              </p>
-            </div>
-
-            <div className="flex flex-col">
-              <h3 className="text-[3rem]">01</h3>
-              <h3 className="text-[3rem]">Explore</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-                hic nulla natus optio velit eligendi impedit illum modi. Odit ea
-                sunt tenetur quo dolorum molestiae pariatur earum perferendis,
-                architecto doloremque.
+            <div className="w-9/10 md:w-7/10">
+              <p className="text-[0.85rem] md:text-[1rem] text-gray-200 text-center">
+                At ExpoAccom, we specialize in providing tailored accommodation
+                solutions for exhibitors attending exhibitions worldwide.
+                Leveraging our extensive network of hotel chains and industry
+                partnerships, we offer a diverse range of options to suit
+                various budgets and preferences.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="flex flex-col justify-center">
-          <div className="w-full flex justify-center">
-            <h2 className="text-[3rem]">Why Choose Us?</h2>
-          </div>
-          <div className="flex justify-center gap-10">
-            <div>
-              <h3>Tailored Accommodation & Travel</h3>
+        <div className="relative bg-gray-100 !pt-20">
+          {/* MISSION & VISION */}
+          <section className="relative !-mt-35 left-1/2 transform -translate-x-1/2 z-10 w-9/10 flex flex-col sm:flex-row gap-10 bg-white !px-8 !py-12 md:!p-15 rounded-lg">
+            <div className="flex flex-col gap-2">
+              <div>
+                <h2 className="text-[1.2rem] md:text-[1.3rem] font-semibold">
+                  Our Mission
+                </h2>
+              </div>
+              <div>
+                <p className="text-[0.85rem] md:text-[1rem]">
+                  Our mission is to empower businesses with efficient tools to
+                  select, book, and manage their exhibition accommodations in a
+                  customized and user-friendly environment. By streamlining
+                  processes, we enhance efficiency, allowing clients to focus on
+                  their core objectives.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3>Seamless Booking & Management</h3>
+            <div className="flex flex-col gap-2">
+              <div>
+                <h2 className="text-[1.2rem] md:text-[1.3rem] font-semibold">
+                  Our Vision
+                </h2>
+              </div>
+              <div>
+                <p className="text-[0.85rem] md:text-[1rem]">
+                  Our vision is to redefine the exhibition accommodation
+                  experience by providing seamless solutions. We aim to create a
+                  future where businesses can effortlessly secure tailored
+                  lodging options, ensuring convenience and productivity at
+                  every step.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3>Dedicated Travel Consultants</h3>
+          </section>
+
+          <section className="flex flex-col items-center gap-5 !py-12 md:!py-20 justify-center">
+            <div className="w-full flex justify-center">
+              <h1 className="text-[1.8rem] md:text-[3rem] text-center text-gray-800">
+                Our Values
+              </h1>
             </div>
-            <div>
-              <h3>Exclusive Trade Fair Insights</h3>
+            <div className="w-9/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {values.map((value, index) => (
+                <div
+                  key={index}
+                  className="!p-6 bg-white shadow-lg rounded-2xl flex flex-col items-center text-center"
+                >
+                  <div className="text-[1.5rem] md:text-[2rem] text-[#1a659e] !mb-4">
+                    {value.icon}
+                  </div>
+                  <h2 className="text-[1.2rem] md:text-[1.3rem] font-medium">
+                    {value.title}
+                  </h2>
+                  <p className="text-[0.85rem] md:text-[1rem] text-gray-700 !mt-2">
+                    {value.description}
+                  </p>
+                </div>
+              ))}
             </div>
-          </div>
-        </section>
+          </section>
+
+          {/* PROCESS */}
+          <section className="flex justify-center !py-10 bg-[#004e89] text-white">
+            <div className="w-9/10">
+              <div>
+                <h2 className="text-[1.8rem] md:text-[3rem]">Process</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 !my-10">
+                <div className="flex flex-col">
+                  <h3 className="text-[1.4rem] md:text-[2rem]">01</h3>
+                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Select your Package
+                  </h3>
+                  <h3 className="hidden lg:block text-[1.4rem] md:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Select your <br /> Package
+                  </h3>
+                  <p className="text-[0.85rem] md:text-[1rem]">
+                    Choose from accommodation, transport, and exhibition support
+                    services.
+                  </p>
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="text-[1.4rem] md:text-[2rem]">02</h3>
+                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Confirm your Plans
+                  </h3>
+                  <h3 className="hidden lg:block text-[1.4rem] md:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Confirm your <br /> Plans
+                  </h3>
+                  <p className="text-[0.85rem] md:text-[1rem]">
+                    Receive a personalized travel plan with all confirmed
+                    bookings and details.
+                  </p>
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="text-[1.4rem] md:text-[2rem]">03</h3>
+                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Enjoy your Travel
+                  </h3>
+                  <h3 className="hidden lg:block text-[1.4rem] md:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Enjoy your <br /> Travel
+                  </h3>
+                  <p className="text-[0.85rem] md:text-[1rem]">
+                    Enjoy smooth arrivals, hassle-free commutes, and comfortable
+                    stays.
+                  </p>
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="text-[1.4rem] md:text-[2rem]">04</h3>
+                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Show your Best
+                  </h3>
+                  <h3 className="hidden lg:block text-[1.4rem] lg:text-[1.8rem] font-semibold text-[#efefd0]">
+                    Show your <br /> Best
+                  </h3>
+                  <p className="text-[0.85rem] md:text-[1rem]">
+                    Focus on networking and showcasing your products while we
+                    handle logistics.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* WHY CHOOSE US */}
+          <section className="!py-12 md:!py-20 flex flex-col gap-5 items-center">
+            <div className="flex justify-center rounded-lg">
+              <h2 className="text-[1.8rem] md:text-[3rem] text-center">
+                Why Choose Us?
+              </h2>
+            </div>
+            <div className="w-9/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+              {whyChooseUs.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-[#efefd0] !p-6 md:!p-10 rounded-lg shadow-lg"
+                >
+                  <h3 className="text-[1.2rem] md:text-[1.3rem] text-[#004E89] font-medium !mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-[0.85rem] md:text-[1rem] text-gray-700">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );

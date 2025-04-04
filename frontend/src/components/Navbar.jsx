@@ -3,7 +3,7 @@ import { MdAdd } from "react-icons/md";
 
 const Navbar = () => {
   return (
-    <nav className="w-full flex justify-between items-center bg-[#01161E] !px-4 !py-2 !mt-4 !mx-4 md:!mx-10 rounded-xl">
+    <nav className="fixed top-5 left-1/2 transform -translate-x-1/2 w-9/10 z-50 flex justify-between items-center bg-[#01161E] !px-4 !py-2 rounded-xl">
       <div>
         <h1 className="text-gray-200 text-2xl font-medium"><Link to="/">ExpoAccom</Link></h1>
       </div>

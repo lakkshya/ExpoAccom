@@ -11,9 +11,7 @@ import Contact from "./pages/Contact";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="flex justify-center bg-gray-100">
-        <Navbar />
-      </div>
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
