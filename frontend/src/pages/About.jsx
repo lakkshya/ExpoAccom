@@ -66,7 +66,7 @@ const About = () => {
               <h1 className="text-[2.5rem] md:text-[5rem]">About Us</h1>
             </div>
             <div className="w-9/10 md:w-7/10">
-              <p className="text-[0.85rem] md:text-[1rem] text-gray-200 text-center">
+              <p className="text-[0.85rem] md:text-[1rem] text-gray-50 text-center">
                 At ExpoAccom, we specialize in providing tailored accommodation
                 solutions for exhibitors attending exhibitions worldwide.
                 Leveraging our extensive network of hotel chains and industry

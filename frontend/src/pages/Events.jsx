@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import Navbar from "../components/Navbar";
 import { LuSearch, LuChevronDown } from "react-icons/lu";
@@ -38,14 +38,48 @@ const Events = () => {
     "Education",
   ];
 
+  const [cityQuery, setCityQuery] = useState("");
+  const [filteredCities, setFilteredCities] = useState([]);
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState("Select Month");
 
-  const [cityQuery, setCityQuery] = useState("");
   const [industryQuery, setIndustryQuery] = useState("");
-
-  const [filteredCities, setFilteredCities] = useState([]);
   const [filteredIndustries, setFilteredIndustries] = useState([]);
+
+  const cityDropdownRef = useRef(null);
+  const monthDropdownRef = useRef(null);
+  const industryDropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        monthDropdownRef.current &&
+        !monthDropdownRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+
+      if (
+        cityDropdownRef.current &&
+        !cityDropdownRef.current.contains(event.target)
+      ) {
+        setFilteredCities([]);
+      }
+
+      if (
+        industryDropdownRef.current &&
+        !industryDropdownRef.current.contains(event.target)
+      ) {
+        setFilteredIndustries([]);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleCityChange = (e) => {
     const value = e.target.value;
@@ -89,10 +123,12 @@ const Events = () => {
           <div className="w-9/10 flex flex-col gap-10 items-center">
             <div className="flex flex-col gap-2 items-center">
               <div className="text-white">
-                <h1 className="text-[2.5rem] md:text-[5rem]">Events</h1>
+                <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[5rem]">
+                  Events
+                </h1>
               </div>
               <div className="w-9/10 md:w-7/10">
-                <p className="text-[0.85rem] md:text-[1rem] text-gray-200 text-center">
+                <p className="text-[0.85rem] sm:text-[1rem] text-gray-200 text-center">
                   Explore upcoming exhibitions and secure hassle-free stays with
                   ExpoAccom. Browse events and enquire for tailored
                   accommodation and travel solutions.
@@ -104,105 +140,141 @@ const Events = () => {
                 <input
                   type="text"
                   placeholder="Find your event"
-                  className="w-full bg-white text-gray-700 text-[0.82rem] xs:text-[0.9rem] !p-3 !pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]"
+                  className="w-full bg-white text-gray-700 text-[0.9rem] sm:text-[1rem] !p-2 sm:!p-3 !pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]"
                 />
                 <LuSearch
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-700"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
                   size={20}
                 />
               </div>
-              <button className="bg-[#FF6B35] text-white text-[0.82rem] xs:text-[0.9rem] !px-4 !py-2 rounded-lg hover:bg-[#d8562a]">
+              <button className="bg-[#FF6B35] text-white text-[0.9rem] sm:text-[1rem] !px-4 !py-2 sm:!py-3 rounded-lg hover:bg-[#d8562a]">
                 Search
               </button>
             </div>
           </div>
         </section>
         <div className="relative !-mt-15 w-9/10 flex flex-col-reverse lg:flex-row gap-10 bg-white rounded-lg !p-5 md:!p-10 !mb-10">
-          <section className="w-full lg:w-3/4 grid grid-cols-1">
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
+          <section className="w-full lg:w-3/4 flex flex-col gap-5">
+            <div className="flex justify-between">
+              <h3 className="text-gray-700">Total 256 results</h3>
+              <div className="flex gap-8">
+                <h3 className="text-gray-700">1-10 of 256</h3>
+                <button>{"<"}</button>
+                <button>{">"}</button>
+              </div>
+            </div>
+            <div className="grid grid-cols-1">
+              <EventCard />
+              <EventCard />
+              <EventCard />
+              <EventCard />
+            </div>
           </section>
-          <section className="w-full lg:w-1/4 lg:border-l border-gray-400 lg:!pl-10 !space-y-6">
+          <section className="w-full lg:w-1/4 grid grid-cols-1 sm:grid-cols-2 !gap-4 lg:flex lg:flex-col lg:!gap-y-6 lg:border-l border-gray-400 lg:!pl-10">
             {/* Filter by City */}
-            <div className="relative w-full text-gray-700">
-              <label className="block !mb-1">Filter by City</label>
-              <input
-                type="text"
-                value={cityQuery}
-                onChange={handleCityChange}
-                placeholder="Search city"
-                className="w-full !p-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#004E89] outline-none"
-              />
-              {filteredCities.length > 0 && (
-                <ul className="absolute z-10 bg-white w-full !mt-1 border border-gray-300 rounded-lg shadow">
-                  {filteredCities.map((city, i) => (
-                    <li
-                      key={i}
-                      onClick={() => selectCity(city)}
-                      className="!p-3 text-[0.9rem] hover:bg-gray-100 cursor-pointer"
-                    >
-                      {city}
-                    </li>
-                  ))}
-                </ul>
-              )}
+            <div className="text-gray-700">
+              <label className="block !mb-1 text-[0.9rem] sm:text-[1rem]">
+                Filter by City
+              </label>
+              <div ref={cityDropdownRef} className="relative w-full">
+                <input
+                  type="text"
+                  value={cityQuery}
+                  onChange={handleCityChange}
+                  placeholder="Search city"
+                  className="w-full !p-2 text-[0.9rem] sm:text-[1rem] border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#004E89] outline-none"
+                />
+                {filteredCities.length > 0 && (
+                  <ul className="absolute z-10 bg-white w-full !mt-1 border border-gray-300 rounded-lg shadow max-h-40 overflow-y-auto">
+                    {filteredCities.map((city, i) => (
+                      <li
+                        key={i}
+                        onClick={() => selectCity(city)}
+                        className="!p-2 sm:!p-3 text-[0.82rem] sm:text-[0.9rem] hover:bg-gray-100 cursor-pointer"
+                      >
+                        {city}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
 
             {/* Filter by Month */}
-            <div className="relative text-gray-700">
-              <label className="block !mb-1">Filter by Month</label>
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex justify-between items-center bg-white border border-gray-400 p-2 rounded-lg focus:ring-2 focus:ring-[#004E89]"
-              >
-                <span className="text-gray-400">{selectedMonth}</span>
-                <LuChevronDown className="text-gray-400" size={18} />
-              </button>
+            <div className="text-gray-700">
+              <label className="block !mb-1 text-[0.9rem] sm:text-[1rem]">
+                Filter by Month
+              </label>
+              <div ref={monthDropdownRef} className="relative">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="w-full flex justify-between items-center text-[0.9rem] sm:text-[1rem] bg-white border border-gray-400 !p-2 rounded-lg focus:ring-2 focus:ring-[#004E89]"
+                >
+                  <span
+                    className={
+                      selectedMonth === "Select Month"
+                        ? "text-gray-400"
+                        : "text-gray-700"
+                    }
+                  >
+                    {selectedMonth}
+                  </span>
 
-              {/* Dropdown Menu */}
-              {isOpen && (
-                <div className="absolute left-0 !mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-40 overflow-y-auto z-10">
-                  {months.map((month, index) => (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        setSelectedMonth(month);
-                        setIsOpen(false);
-                      }}
-                      className="p-3 text-[0.9rem] hover:bg-gray-100 cursor-pointer text-gray-700"
-                    >
-                      {month}
-                    </div>
-                  ))}
-                </div>
-              )}
+                  <LuChevronDown className="text-gray-400" size={18} />
+                </button>
+
+                {/* Dropdown Menu */}
+                {isOpen && (
+                  <div className="absolute z-10 left-0 !mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-40 overflow-y-auto">
+                    {months.map((month, index) => (
+                      <div
+                        key={index}
+                        onClick={() => {
+                          setSelectedMonth(month);
+                          setIsOpen(false);
+                        }}
+                        className="!p-2 sm:!p-3 text-[0.82rem] sm:text-[0.9rem] hover:bg-gray-100 cursor-pointer text-gray-700"
+                      >
+                        {month}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Filter by Industry */}
-            <div className="relative w-full text-gray-700">
-              <label className="block !mb-1">Filter by Industry</label>
-              <input
-                type="text"
-                value={industryQuery}
-                onChange={handleIndustryChange}
-                placeholder="Search industry"
-                className="w-full !p-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#004E89] outline-none"
-              />
-              {filteredIndustries.length > 0 && (
-                <ul className="absolute z-10 bg-white w-full !mt-1 border border-gray-300 rounded-lg shadow">
-                  {filteredIndustries.map((industry, i) => (
-                    <li
-                      key={i}
-                      onClick={() => selectIndustry(industry)}
-                      className="!p-3 text-[0.9rem] hover:bg-gray-100 cursor-pointer"
-                    >
-                      {industry}
-                    </li>
-                  ))}
-                </ul>
-              )}
+            <div className="text-gray-700">
+              <label className="block !mb-1 text-[0.9rem] sm:text-[1rem]">
+                Filter by Industry
+              </label>
+              <div ref={industryDropdownRef} className="relative w-full">
+                <input
+                  type="text"
+                  value={industryQuery}
+                  onChange={handleIndustryChange}
+                  placeholder="Search industry"
+                  className="w-full !p-2 text-[0.9rem] sm:text-[1rem] border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#004E89] outline-none"
+                />
+                {filteredIndustries.length > 0 && (
+                  <ul className="absolute z-10 bg-white w-full !mt-1 border border-gray-300 rounded-lg shadow max-h-40 overflow-y-auto">
+                    {filteredIndustries.map((industry, i) => (
+                      <li
+                        key={i}
+                        onClick={() => selectIndustry(industry)}
+                        className="!p-2 sm:!p-3 text-[0.82rem] sm:text-[0.9rem] hover:bg-gray-100 cursor-pointer"
+                      >
+                        {industry}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+            <div className="self-end">
+              <button className="w-full text-[0.9rem] sm:text-[1rem] text-white bg-[#004E89] hover:bg-[#1A659E] !p-2 cursor-pointer rounded-lg">
+                Filter
+              </button>
             </div>
           </section>
         </div>
