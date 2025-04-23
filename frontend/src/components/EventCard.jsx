@@ -13,26 +13,26 @@ const EventCard = () => {
         </div>
         <div className="flex flex-col gap-1 sm:gap-2">
           <div className="flex-col lg:block">
-            <h1 className="inline text-[1rem] sm:text-[1.2rem] text-[#FF6B35] font-medium">
+            <h1 className="inline text-[1rem] sm:text-[1.2rem] text-[#e03f05] font-medium">
               Breakbulk Europe 2025
             </h1>
             <span className="hidden lg:inline"> | </span>
             <div className="flex items-center gap-2 lg:inline !mt-1 sm:!mt-2">
-              <LuMapPin className="inline lg:hidden text-gray-700 text-[1rem] sm:text-[1.2rem]" />
-              <span className="text-[0.9rem] sm:text-[1rem] text-gray-700">
+              <LuMapPin className="inline lg:hidden text-gray-900 text-[1rem] sm:text-[1.2rem]" />
+              <span className="text-[0.9rem] sm:text-[1rem] text-gray-900">
                 Ahoy Rotterdam
               </span>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <LuCalendarDays className="text-gray-700 text-[1rem] sm:text-[1.2rem]" />
-            <span className="text-[0.9rem] text-gray-700">
+            <LuCalendarDays className="text-gray-900 text-[1rem] sm:text-[1.2rem]" />
+            <span className="text-[0.9rem] text-gray-900">
               25 Mar 2025 - 29 Mar 2025
             </span>
           </div>
 
           <div>
-            <span className="text-[0.8rem] text-gray-600 font-semibold bg-[#EFEFD0] rounded-md !px-2">
+            <span className="text-[0.8rem] text-gray-900 font-semibold bg-[rgb(231,231,231)] rounded-md !px-2">
               Transport and Traffic
             </span>
           </div>

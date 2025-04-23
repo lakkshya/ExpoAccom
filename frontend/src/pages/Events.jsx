@@ -119,8 +119,17 @@ const Events = () => {
     <div className="relative">
       <Navbar />
       <main className="flex flex-col items-center bg-gray-100">
-        <section className="w-full flex justify-center bg-[#1A659E] !pt-28 !pb-25 lg:!py-35">
-          <div className="w-9/10 flex flex-col gap-10 items-center">
+        <section className="relative w-full flex justify-center !pt-28 !pb-25 lg:!py-35">
+          <img
+            src="/events-bg.jpg"
+            alt="Events Cover Image"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          />
+          {/* Overlay to fade the background image */}
+          <div className="absolute inset-0 bg-black/50 z-0"></div>
+          {/* Content */}
+          <div className="w-9/10 flex flex-col gap-10 items-center z-10">
             <div className="flex flex-col gap-2 items-center">
               <div className="text-white">
                 <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[5rem]">
@@ -140,14 +149,14 @@ const Events = () => {
                 <input
                   type="text"
                   placeholder="Find your event"
-                  className="w-full bg-white text-gray-700 text-[0.9rem] sm:text-[1rem] !p-2 sm:!p-3 !pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]"
+                  className="w-full bg-white text-gray-700 text-[0.9rem] sm:text-[1rem] !p-2 sm:!p-3 !pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0c4c3e]"
                 />
                 <LuSearch
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
                   size={20}
                 />
               </div>
-              <button className="bg-[#FF6B35] text-white text-[0.9rem] sm:text-[1rem] !px-4 !py-2 sm:!py-3 rounded-lg hover:bg-[#d8562a]">
+              <button className="bg-[#0c4c3e] hover:bg-[#8fbc55] text-white text-[0.9rem] sm:text-[1rem] !px-4 !py-2 sm:!py-3 rounded-lg">
                 Search
               </button>
             </div>
@@ -182,7 +191,7 @@ const Events = () => {
                   value={cityQuery}
                   onChange={handleCityChange}
                   placeholder="Search city"
-                  className="w-full !p-2 text-[0.9rem] sm:text-[1rem] border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#004E89] outline-none"
+                  className="w-full !p-2 text-[0.9rem] sm:text-[1rem] border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#0c4c3e] outline-none"
                 />
                 {filteredCities.length > 0 && (
                   <ul className="absolute z-10 bg-white w-full !mt-1 border border-gray-300 rounded-lg shadow max-h-40 overflow-y-auto">
@@ -208,7 +217,7 @@ const Events = () => {
               <div ref={monthDropdownRef} className="relative">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="w-full flex justify-between items-center text-[0.9rem] sm:text-[1rem] bg-white border border-gray-400 !p-2 rounded-lg focus:ring-2 focus:ring-[#004E89]"
+                  className="w-full flex justify-between items-center text-[0.9rem] sm:text-[1rem] bg-white border border-gray-400 !p-2 rounded-lg focus:ring-2 focus:ring-[#0c4c3e]"
                 >
                   <span
                     className={
@@ -254,7 +263,7 @@ const Events = () => {
                   value={industryQuery}
                   onChange={handleIndustryChange}
                   placeholder="Search industry"
-                  className="w-full !p-2 text-[0.9rem] sm:text-[1rem] border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#004E89] outline-none"
+                  className="w-full !p-2 text-[0.9rem] sm:text-[1rem] border border-gray-400 rounded-lg focus:ring-2 focus:ring-[#0c4c3e] outline-none"
                 />
                 {filteredIndustries.length > 0 && (
                   <ul className="absolute z-10 bg-white w-full !mt-1 border border-gray-300 rounded-lg shadow max-h-40 overflow-y-auto">
@@ -272,7 +281,7 @@ const Events = () => {
               </div>
             </div>
             <div className="self-end">
-              <button className="w-full text-[0.9rem] sm:text-[1rem] text-white bg-[#004E89] hover:bg-[#1A659E] !p-2 cursor-pointer rounded-lg">
+              <button className="w-full text-[0.9rem] sm:text-[1rem] text-white bg-[#0c4c3e] hover:bg-[#8fbc55] !p-2 cursor-pointer rounded-lg">
                 Filter
               </button>
             </div>

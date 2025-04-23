@@ -11,7 +11,7 @@ const Contact = () => {
           <section className="w-full lg:w-3/5 !pt-28 lg:!pt-35 lg:!pb-20">
             {/* CONTACT FORM */}
             <div className="flex flex-col gap-3 bg-white !p-6 rounded-lg">
-              <h2 className="text-[0.9rem] xs:text-[1rem] text-[#FF6B35] font-semibold">
+              <h2 className="text-[0.9rem] xs:text-[1rem] text-[#e03f05] font-semibold">
                 Get in Touch
               </h2>
               <h1 className="text-[1.5rem] xs:text-[2rem] font-medium">
@@ -31,7 +31,7 @@ const Contact = () => {
                       required
                       name="firstName"
                       placeholder="First name"
-                      className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#004E89] rounded-lg"
+                      className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                     />
                   </div>
                   <div>
@@ -42,7 +42,7 @@ const Contact = () => {
                       type="text"
                       name="lastName"
                       placeholder="Last name"
-                      className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#004E89] rounded-lg"
+                      className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                     />
                   </div>
                 </div>
@@ -54,7 +54,7 @@ const Contact = () => {
                     type="text"
                     name="companyName"
                     placeholder="Company name"
-                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#004E89] rounded-lg"
+                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                 </div>
                 <div>
@@ -66,7 +66,7 @@ const Contact = () => {
                     required
                     name="email"
                     placeholder="Email address"
-                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#004E89] rounded-lg"
+                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                 </div>
                 <div>
@@ -78,7 +78,7 @@ const Contact = () => {
                     required
                     name="phoneno"
                     placeholder="Phone number"
-                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#004E89] rounded-lg"
+                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                 </div>
                 <div>
@@ -90,13 +90,13 @@ const Contact = () => {
                     required
                     rows="5"
                     placeholder="Leave us message"
-                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#004E89] rounded-lg resize-none"
+                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg resize-none"
                   ></textarea>
                 </div>
                 <div>
                   <input
                     type="submit"
-                    className="w-full bg-[#004E89] text-white hover:bg-[#1A659E] cursor-pointer !p-2 rounded-lg"
+                    className="w-full bg-[#0c4c3e] text-white hover:bg-[#8fbc55] cursor-pointer !p-2 rounded-lg"
                   />
                 </div>
               </form>
@@ -106,7 +106,7 @@ const Contact = () => {
           {/* RIGHT SECTION */}
           <section className="w-full lg:w-2/5 flex flex-col lg:flex-col justify-between gap-5 !pb-15 lg:!pt-35 lg:!pb-20">
             {/* IMAGE */}
-            <div className="w-full lg:w-full flex flex-1 flex-col gap-4 bg-gradient-to-br from-[#004E89] to-[#48cae4] !p-6 rounded-lg">
+            <div className="w-full lg:w-full flex flex-1 flex-col gap-4 bg-[#0c4c3e] bg-[linear-gradient(43deg,_#0c4c3e_12%,_#8fbc55_66%)] !p-6 rounded-lg">
               <h1 className="text-[1.3rem] xs:text-[1.6rem] font-semibold text-white">
                 Next Steps after Submission
               </h1>
@@ -143,8 +143,8 @@ const Contact = () => {
             {/* COMPANY INFO */}
             <div className="w-full lg:w-full flex flex-col gap-3 bg-white !p-6 rounded-lg">
               <div className="w-full flex items-center gap-4 bg-[#f9f9f9] !p-3 rounded-lg">
-                <div className="hidden xs:flex justify-center items-center bg-blue-100 w-12 h-12 rounded-full">
-                  <LuMail size={22} className="text-[#004E89]" />
+                <div className="hidden xs:flex justify-center items-center bg-[#d5e4d8] w-12 h-12 rounded-full">
+                  <LuMail size={22} className="text-[#0c4c3e]" />
                 </div>
                 <div className="flex flex-col">
                   <h3 className="text-[1rem] xs:text-[1.2rem] font-medium">
@@ -156,8 +156,8 @@ const Contact = () => {
                 </div>
               </div>
               <div className="w-full flex items-center gap-4 bg-[#f9f9f9] !p-3 rounded-lg">
-                <div className="hidden xs:flex justify-center items-center bg-blue-100 w-12 h-12 rounded-full">
-                  <LuPhone size={22} className="text-[#004E89]" />
+                <div className="hidden xs:flex justify-center items-center bg-[#d5e4d8] w-12 h-12 rounded-full">
+                  <LuPhone size={22} className="text-[#0c4c3e]" />
                 </div>
                 <div className="flex flex-col">
                   <h3 className="text-[1rem] xs:text-[1.2rem] font-medium">
@@ -169,8 +169,8 @@ const Contact = () => {
                 </div>
               </div>
               <div className="w-full flex items-center gap-4 bg-[#f9f9f9] !p-3 rounded-lg">
-                <div className="hidden xs:flex justify-center items-center bg-blue-100 w-12 h-12 rounded-full">
-                  <LuBuilding2 size={22} className="text-[#004E89]" />
+                <div className="hidden xs:flex justify-center items-center bg-[#d5e4d8] w-12 h-12 rounded-full">
+                  <LuBuilding2 size={22} className="text-[#0c4c3e]" />
                 </div>
                 <div className="flex flex-col">
                   <h3 className="text-[1rem] xs:text-[1.2rem] font-medium">
