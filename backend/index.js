@@ -1,11 +1,19 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const eventRoutes = require("./routes/events");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
 //middleware
 app.use(express.json());

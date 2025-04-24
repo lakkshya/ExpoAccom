@@ -1,9 +1,15 @@
 import { useState, useRef, useEffect } from "react";
+import useFetch from "../hooks/useFetch";
+
 import EventCard from "../components/EventCard";
 import Navbar from "../components/Navbar";
 import { LuSearch, LuChevronDown } from "react-icons/lu";
 
 const Events = () => {
+  const { data, loading, error } = useFetch(
+    `${import.meta.env.VITE_API_URL}/api/events/`
+  );
+
   const cities = [
     "Dubai",
     "Mumbai",
@@ -115,6 +121,14 @@ const Events = () => {
     setFilteredIndustries([]);
   };
 
+  if (loading) {
+    return <p>Loading data...</p>;
+  }
+
+  if (error) {
+    return <p>Error fetching data : {error.message}</p>;
+  }
+
   return (
     <div className="relative">
       <Navbar />
@@ -173,10 +187,11 @@ const Events = () => {
               </div>
             </div>
             <div className="grid grid-cols-1">
-              <EventCard />
-              <EventCard />
-              <EventCard />
-              <EventCard />
+              {Array.isArray(data) && data.length > 0 ? (
+                data.map((event) => <EventCard key={event._id} event={event} />)
+              ) : (
+                <p>No events available.</p>
+              )}
             </div>
           </section>
           <section className="w-full lg:w-1/4 grid grid-cols-1 sm:grid-cols-2 !gap-4 lg:flex lg:flex-col lg:!gap-y-6 lg:border-l border-gray-400 lg:!pl-10">

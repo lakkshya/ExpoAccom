@@ -38,7 +38,7 @@ const createEvent = async (req, res) => {
     description,
   } = req.body;
 
-  //add doc o db
+  //add doc to db
   try {
     const event = await Event.create({
       title,

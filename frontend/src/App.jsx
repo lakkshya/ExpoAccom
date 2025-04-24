@@ -12,6 +12,7 @@ import LocalTransfers from "./pages/LocalTransfers";
 import Booking from "./pages/Booking";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import SingleEvent from "./pages/SingleEvent";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/events/:id" element={<SingleEvent />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/flights" element={<Flights />} />
         <Route path="/services/visas" element={<Visas />} />
