@@ -37,7 +37,7 @@ const eventSchema = new Schema(
       required: true,
     },
     frequency: {
-      type: Number,
+      type: String,
       required: true,
     },
     website: {
