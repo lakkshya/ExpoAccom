@@ -1,10 +1,100 @@
+import axios from "axios";
+import { useState } from "react";
 import { LuMail, LuPhone, LuBuilding2 } from "react-icons/lu";
 import Navbar from "../components/Navbar";
+import SuccessBox from "../components/contact/SuccessBox";
+import ErrorBox from "../components/contact/ErrorBox";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    companyName: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email address is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = "Phone number is required";
+    } else if (!/^\+\d{7,15}$/.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Enter a valid phone number";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    return newErrors;
+  };
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/contact/`,
+        formData
+      );
+
+      setSuccessMessage(res.data.message);
+      // setTimeout(() => setSuccessMessage(""), 4000);
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        companyName: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+      });
+      setErrors({});
+    } catch (error) {
+      if (error.response) {
+        setErrorMessage(error.response.data.error);
+      } else {
+        setErrorMessage("Server error. Please try again later.");
+      }
+    }
+  };
+
   return (
     <div className="relative">
       <Navbar />
+      {successMessage && (
+        <SuccessBox
+          message={successMessage}
+          onClose={() => setSuccessMessage("")}
+        />
+      )}
+
+      {errorMessage && (
+        <ErrorBox message={errorMessage} onClose={() => setErrorMessage("")} />
+      )}
+
       <main className="flex justify-center bg-gray-100">
         <div className="w-9/10 flex flex-col lg:flex-row gap-5">
           {/* LEFT SECTION */}
@@ -18,21 +108,27 @@ const Contact = () => {
                 Reach Out to Us
               </h1>
               <form
-                action=""
+                onSubmit={handleSubmit}
                 className="flex flex-col gap-5 border-t-1 border-gray-400 text-[0.82rem] xs:text-[0.9rem] text-gray-700 !pt-8 !mt-5"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block">
-                      First Name
+                      First Name <span className="text-red-600">*</span>
                     </label>
                     <input
                       type="text"
-                      required
                       name="firstName"
-                      placeholder="First name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      placeholder="Ex- John"
                       className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                        {errors.firstName}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block">
@@ -41,63 +137,90 @@ const Contact = () => {
                     <input
                       type="text"
                       name="lastName"
-                      placeholder="Last name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder="Ex- Doe"
                       className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block">
+                  <label htmlFor="companyName" className="block">
                     Company Name
                   </label>
                   <input
                     type="text"
                     name="companyName"
-                    placeholder="Company name"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                    placeholder="Ex- Acme Corp"
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block">
-                    Email Address
+                    Email Address <span className="text-red-600">*</span>
                   </label>
                   <input
-                    type="email"
-                    required
+                    type="text"
                     name="email"
-                    placeholder="Email address"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Ex- john.doe@example.com"
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
+                  {errors.email && (
+                    <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label htmlFor="phoneno" className="block">
-                    Phone Number
+                  <label htmlFor="phoneNumber" className="block">
+                    Phone Number <span className="text-red-600">*</span>
                   </label>
                   <input
-                    type="tel"
-                    required
-                    name="phoneno"
-                    placeholder="Phone number"
+                    type="text"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    placeholder="Ex- +919876543210"
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
+                  {!errors.phoneNumber && (
+                    <p className="text-gray-500 text-[0.72rem] xs:text-[0.8rem] !mt-1">Start with your country code</p>
+                  )}
+                  {errors.phoneNumber && (
+                    <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                      {errors.phoneNumber}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="message" className="block">
-                    Message
+                    Message <span className="text-red-600">*</span>
                   </label>
                   <textarea
                     name="message"
-                    required
                     rows="5"
-                    placeholder="Leave us message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Ex- I would like to inquire about your services..."
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg resize-none"
                   ></textarea>
+                  {errors.message && (
+                    <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <input
+                  <button
                     type="submit"
                     className="w-full bg-[#0c4c3e] text-white hover:bg-[#8fbc55] cursor-pointer !p-2 rounded-lg"
-                  />
+                  >
+                    Submit
+                  </button>
                 </div>
               </form>
             </div>

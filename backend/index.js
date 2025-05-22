@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const eventRoutes = require("./routes/events");
+const contactRoutes = require("./routes/contact");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 //routes
 app.use("/api/events", eventRoutes);
+app.use("/api/contact", contactRoutes);
 
 //connect to db
 mongoose
