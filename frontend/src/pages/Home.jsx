@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import EventsSlider from "../components/EventsSlider";
+import EventsSlider from "../components/home/EventsSlider";
 
 const headlineArray = [
   "Luxury Stays",
@@ -70,7 +70,7 @@ const Home = () => {
             </div>
           </section>
 
-          <section className="w-9/10 flex flex-col items-center gap-8 bg-white !py-12 md:!py-15 rounded-lg">
+          <section className="w-9/10 flex flex-col items-center gap-8 bg-white !py-8 sm;!py-12 md:!py-15 rounded-lg">
             <div className="w-full flex flex-col lg:flex-row gap-5 lg:gap-10 justify-center lg:items-center bg-gray-100 !px-5 !py-8 sm:!px-8 sm:!py-10 rounded-lg">
               <h1 className="text-[1.8rem] sm:text-[2.5rem] font-medium text-black">
                 About ExpoAccom
@@ -96,7 +96,7 @@ const Home = () => {
             </div>
           </section>
 
-          <section className="w-9/10 flex flex-col items-center gap-8 bg-white !py-12 md:!py-15 rounded-lg">
+          <section className="w-full flex flex-col items-center gap-8 bg-white !py-8 sm:!py-12 md:!py-15">
             <EventsSlider />
           </section>
         </div>
