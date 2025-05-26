@@ -83,3 +83,19 @@ body {
   margin: 10px 0;
   color: rgb(68, 68, 68);
 }
+
+/* HOME PAGE HERO SECTION DYNAMIC TEXT */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease;
+}
