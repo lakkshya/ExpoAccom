@@ -25,7 +25,7 @@ const eventSchema = new Schema(
       required: true,
     },
     industry: {
-      type: String,
+      type: [String],
       required: true,
     },
     organizer: {
