@@ -5,6 +5,57 @@ import {
   FaLightbulb,
 } from "react-icons/fa";
 import Navbar from "../components/Navbar";
+import Accordian from "../components/about/Accordian";
+
+const faqs = [
+  {
+    question: "Can I choose my hotel or do you assign one?",
+    answer:
+      "Absolutely, you can choose your preferred hotel from the list we provide. We'll offer multiple options based on your needs, budget, and proximity to the venue.",
+  },
+  {
+    question: "Are meals included in the hotel booking?",
+    answer:
+      "Meal inclusions depend on the hotel you select. Most of our partner hotels offer complimentary breakfast, and we’ll inform you of all meal options before you confirm the booking.",
+  },
+  {
+    question: "Can I modify or cancel my booking?",
+    answer:
+      "Yes, modifications and cancellations are possible depending on the hotel’s policy. We’ll provide full terms and conditions at the time of booking.",
+  },
+  {
+    question: "Is your service available for group bookings?",
+    answer:
+      "Definitely! We specialize in handling individual as well as group bookings. Let us know your group size, and we’ll provide a tailored package.",
+  },
+  {
+    question: "Do you assist with local travel or sightseeing?",
+    answer:
+      "Yes, we can arrange local travel, sightseeing tours, and other leisure activities upon request.",
+  },
+  {
+    question: "What if I have an emergency or issue during my stay?",
+    answer:
+      "We provide 24/7 support during your stay. You’ll have a dedicated point of contact to assist with any emergencies or concerns.",
+  },
+  {
+    question: "How early should I book my accommodation?",
+    answer:
+      "We recommend booking as early as possible—at least 4-6 weeks in advance—to ensure the best rates and availability near the exhibition venue.",
+  },
+  {
+    question:
+      "How do I know if you cover the city where my exhibition is happening?",
+    answer:
+      "We operate in all prominent exhibition cities globally. You can check our website’s “Major Exhibition Venues” section or contact us directly with your exhibition details, and we’ll confirm our presence and services in that location.",
+  },
+  {
+    question:
+      "Can you help me choose the best hotel based on the exhibition location?",
+    answer:
+      "Absolutely. We’ll recommend hotels that are closest to the venue, well-connected, and suited to your budget and preferences, ensuring minimal commute time and maximum comfort.",
+  },
+];
 
 const About = () => {
   const values = [
@@ -75,7 +126,7 @@ const About = () => {
               <h1 className="text-[2.5rem] md:text-[5rem]">About Us</h1>
             </div>
             <div className="w-9/10 md:w-7/10">
-              <p className="text-[0.85rem] md:text-[1rem] text-gray-50 text-center">
+              <p className="text-[0.85rem]/6 md:text-[1rem]/7 text-gray-50 text-center">
                 At ExpoAccom, we specialize in providing tailored accommodation
                 solutions for exhibitors attending exhibitions worldwide.
                 Leveraging our extensive network of hotel chains and industry
@@ -96,7 +147,7 @@ const About = () => {
                 </h2>
               </div>
               <div>
-                <p className="text-[0.85rem] md:text-[1rem]">
+                <p className="text-[0.85rem]/6 md:text-[1rem]/7">
                   Our mission is to empower businesses with efficient tools to
                   select, book, and manage their exhibition accommodations in a
                   customized and user-friendly environment. By streamlining
@@ -112,7 +163,7 @@ const About = () => {
                 </h2>
               </div>
               <div>
-                <p className="text-[0.85rem] md:text-[1rem]">
+                <p className="text-[0.85rem]/6 md:text-[1rem]/7">
                   Our vision is to redefine the exhibition accommodation
                   experience by providing seamless solutions. We aim to create a
                   future where businesses can effortlessly secure tailored
@@ -141,7 +192,7 @@ const About = () => {
                   <h2 className="text-[1.2rem] md:text-[1.3rem] font-medium">
                     {value.title}
                   </h2>
-                  <p className="text-[0.85rem] md:text-[1rem] text-gray-700 !mt-2">
+                  <p className="text-[0.85rem]/6 md:text-[1rem]/6 text-gray-700 !mt-2">
                     {value.description}
                   </p>
                 </div>
@@ -156,54 +207,54 @@ const About = () => {
                 <h2 className="text-[1.8rem] md:text-[3rem]">Process</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 !my-10">
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-1">
                   <h3 className="text-[1.4rem] md:text-[2rem]">01</h3>
-                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold">
+                  <h3 className="lg:hidden text-[1.3rem] md:text-[1.8rem] font-semibold">
                     Select your Package
                   </h3>
-                  <h3 className="hidden lg:block text-[1.4rem] md:text-[1.8rem] font-semibold">
+                  <h3 className="hidden lg:block text-[1.3rem] md:text-[1.8rem] font-semibold">
                     Select your <br /> Package
                   </h3>
-                  <p className="text-[0.85rem] md:text-[1rem]">
+                  <p className="text-[0.85rem]/6 md:text-[1rem]/6">
                     Choose from accommodation, transport, and exhibition support
                     services.
                   </p>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-1">
                   <h3 className="text-[1.4rem] md:text-[2rem]">02</h3>
-                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold">
+                  <h3 className="lg:hidden text-[1.3rem] md:text-[1.8rem] font-semibold">
                     Confirm your Plans
                   </h3>
-                  <h3 className="hidden lg:block text-[1.4rem] md:text-[1.8rem] font-semibold">
+                  <h3 className="hidden lg:block text-[1.3rem] md:text-[1.8rem] font-semibold">
                     Confirm your <br /> Plans
                   </h3>
-                  <p className="text-[0.85rem] md:text-[1rem]">
+                  <p className="text-[0.85rem]/6 md:text-[1rem]/6">
                     Receive a personalized travel plan with all confirmed
                     bookings and details.
                   </p>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-1">
                   <h3 className="text-[1.4rem] md:text-[2rem]">03</h3>
-                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold">
+                  <h3 className="lg:hidden text-[1.3rem] md:text-[1.8rem] font-semibold">
                     Enjoy your Travel
                   </h3>
-                  <h3 className="hidden lg:block text-[1.4rem] md:text-[1.8rem] font-semibold">
+                  <h3 className="hidden lg:block text-[1.3rem] md:text-[1.8rem] font-semibold">
                     Enjoy your <br /> Travel
                   </h3>
-                  <p className="text-[0.85rem] md:text-[1rem]">
+                  <p className="text-[0.85rem]/6 md:text-[1rem]/6">
                     Enjoy smooth arrivals, hassle-free commutes, and comfortable
                     stays.
                   </p>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-1">
                   <h3 className="text-[1.4rem] md:text-[2rem]">04</h3>
-                  <h3 className="lg:hidden text-[1.4rem] md:text-[1.8rem] font-semibold">
+                  <h3 className="lg:hidden text-[1.3rem] md:text-[1.8rem] font-semibold">
                     Show your Best
                   </h3>
-                  <h3 className="hidden lg:block text-[1.4rem] lg:text-[1.8rem] font-semibold">
+                  <h3 className="hidden lg:block text-[1.3rem] lg:text-[1.8rem] font-semibold">
                     Show your <br /> Best
                   </h3>
-                  <p className="text-[0.85rem] md:text-[1rem]">
+                  <p className="text-[0.85rem]/6 md:text-[1rem]/6">
                     Focus on networking and showcasing your products while we
                     handle logistics.
                   </p>
@@ -228,11 +279,27 @@ const About = () => {
                   <h3 className="text-[1.2rem] md:text-[1.3rem] text-black font-medium !mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-[0.85rem] md:text-[1rem] text-gray-700">
+                  <p className="text-[0.85rem]/6 md:text-[1rem]/6 text-gray-700">
                     {item.description}
                   </p>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* FAQs */}
+          <section className="!pb-12 md:!pb-20 flex flex-col gap-5 items-center">
+            <div className="w-9/10 flex rounded-lg justify-center">
+              <h2 className="text-[1.8rem] md:text-[3rem] text-center">
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="w-9/10 flex justify-center">
+              <div className="w-full sm:w-7/10 grid grid-cols-1 gap-1">
+                {faqs.map((faq, index) => (
+                  <Accordian key={index} faq={faq} />
+                ))}
+              </div>
             </div>
           </section>
         </div>
