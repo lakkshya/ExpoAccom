@@ -1,5 +1,5 @@
-// import { useState } from "react";
 import Navbar from "../components/Navbar";
+import ContactBox from "../components/services/ContactBox";
 
 const Flights = () => {
   return (
@@ -87,6 +87,10 @@ const Flights = () => {
                 and satisfaction every step of the way.
               </p>
             </div>
+          </section>
+
+          <section className="w-full flex justify-center !pb-12 md:!pb-15 bg-white">
+            <ContactBox />
           </section>
         </div>
       </main>

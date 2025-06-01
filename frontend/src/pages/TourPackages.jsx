@@ -1,5 +1,5 @@
-// import { useState } from "react";
 import Navbar from "../components/Navbar";
+import ContactBox from "../components/services/ContactBox";
 
 const TourPackages = () => {
   return (
@@ -90,6 +90,10 @@ const TourPackages = () => {
                 your travel ideas into unforgettable adventures.
               </p>
             </div>
+          </section>
+
+          <section className="w-full flex justify-center !pb-12 md:!pb-15 bg-white">
+            <ContactBox />
           </section>
         </div>
       </main>

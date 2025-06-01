@@ -61,7 +61,6 @@ const Contact = () => {
       );
 
       setSuccessMessage(res.data.message);
-      // setTimeout(() => setSuccessMessage(""), 4000);
 
       setFormData({
         firstName: "",
@@ -109,7 +108,7 @@ const Contact = () => {
               </h1>
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-5 border-t-1 border-gray-400 text-[0.82rem] xs:text-[0.9rem] text-gray-700 !pt-8 !mt-5"
+                className="flex flex-col gap-5 border-t-1 border-gray-400 text-[0.9rem] xs:text-[1rem] text-gray-700 !pt-8 !mt-5"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -125,7 +124,7 @@ const Contact = () => {
                       className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                     />
                     {errors.firstName && (
-                      <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                      <p className="text-red-600 text-[0.78rem] xs:text-[0.85rem] !mt-1">
                         {errors.firstName}
                       </p>
                     )}
@@ -170,7 +169,7 @@ const Contact = () => {
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                   {errors.email && (
-                    <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                    <p className="text-red-600 text-[0.78rem] xs:text-[0.85rem] !mt-1">
                       {errors.email}
                     </p>
                   )}
@@ -188,10 +187,10 @@ const Contact = () => {
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                   {!errors.phoneNumber && (
-                    <p className="text-gray-500 text-[0.72rem] xs:text-[0.8rem] !mt-1">Start with your country code</p>
+                    <p className="text-gray-500 text-[0.78rem] xs:text-[0.85rem] !mt-1">Start with your country code</p>
                   )}
                   {errors.phoneNumber && (
-                    <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                    <p className="text-red-600 text-[0.78rem] xs:text-[0.85rem] !mt-1">
                       {errors.phoneNumber}
                     </p>
                   )}
@@ -209,7 +208,7 @@ const Contact = () => {
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg resize-none"
                   ></textarea>
                   {errors.message && (
-                    <p className="text-red-600 text-[0.72rem] xs:text-[0.8rem] !mt-1">
+                    <p className="text-red-600 text-[0.78rem] xs:text-[0.85rem] !mt-1">
                       {errors.message}
                     </p>
                   )}
@@ -228,35 +227,35 @@ const Contact = () => {
 
           {/* RIGHT SECTION */}
           <section className="w-full lg:w-2/5 flex flex-col lg:flex-col justify-between gap-5 !pb-15 lg:!pt-35 lg:!pb-20">
-            {/* IMAGE */}
+            {/* STEPS */}
             <div className="w-full lg:w-full flex flex-1 flex-col gap-4 bg-[#0c4c3e] bg-[linear-gradient(43deg,_#0c4c3e_12%,_#8fbc55_66%)] !p-6 rounded-lg">
-              <h1 className="text-[1.3rem] xs:text-[1.6rem] font-semibold text-white">
+              <h1 className="text-[1.3rem] sm:text-[1.6rem] font-semibold text-white">
                 Next Steps after Submission
               </h1>
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-[1rem] xs:text-[1.2rem] font-medium text-white">
+                  <h2 className="text-[1rem] sm:text-[1.2rem] font-medium text-white">
                     1. Our Team Contacts You
                   </h2>
-                  <p className="text-[0.82rem] xs:text-[0.9rem] text-gray-200">
+                  <p className="text-[0.85rem] sm:text-[0.9rem] text-gray-200">
                     After submitting the form, our team will reach out to you
                     within 24 hours.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-[1rem] xs:text-[1.2rem] font-medium text-white">
+                  <h2 className="text-[1rem] sm:text-[1.2rem] font-medium text-white">
                     2. Discuss Your Requirements
                   </h2>
-                  <p className="text-[0.82rem] xs:text-[0.9rem] text-gray-200">
+                  <p className="text-[0.85rem] sm:text-[0.9rem] text-gray-200">
                     We’ll understand your needs and tailor the best
                     accommodation and travel solutions.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-[1rem] xs:text-[1.2rem] font-medium text-white">
+                  <h2 className="text-[1rem] sm:text-[1.2rem] font-medium text-white">
                     3. Exhibit with Confidence
                   </h2>
-                  <p className="text-[0.82rem] xs:text-[0.9rem] text-gray-200">
+                  <p className="text-[0.85rem] sm:text-[0.9rem] text-gray-200">
                     With everything arranged, you can focus on showcasing your
                     business hassle-free.
                   </p>
@@ -273,7 +272,7 @@ const Contact = () => {
                   <h3 className="text-[1rem] xs:text-[1.2rem] font-medium">
                     Email
                   </h3>
-                  <span className="text-[0.82rem] xs:text-[0.9rem] text-gray-700">
+                  <span className="text-[0.85rem] xs:text-[0.9rem] text-gray-700">
                     expoaccomservices@gmail.com
                   </span>
                 </div>
@@ -286,7 +285,7 @@ const Contact = () => {
                   <h3 className="text-[1rem] xs:text-[1.2rem] font-medium">
                     Phone
                   </h3>
-                  <span className="text-[0.82rem] xs:text-[0.9rem] text-gray-700">
+                  <span className="text-[0.85rem] xs:text-[0.9rem] text-gray-700">
                     +91 9900226677
                   </span>
                 </div>
@@ -299,7 +298,7 @@ const Contact = () => {
                   <h3 className="text-[1rem] xs:text-[1.2rem] font-medium">
                     Address
                   </h3>
-                  <span className="text-[0.82rem] xs:text-[0.9rem] text-gray-700">
+                  <span className="text-[0.85rem] xs:text-[0.9rem] text-gray-700">
                     Sector-15, Rohini Delhi, India
                   </span>
                 </div>
