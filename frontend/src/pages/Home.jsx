@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/home/HeroSection";
 import EventsSlider from "../components/home/EventsSlider";
+import ExpoDestinations from "../components/home/ExpoDestinations";
 
 const Home = () => {
   return (
@@ -41,6 +42,10 @@ const Home = () => {
 
           <section className="w-full flex flex-col items-center gap-8 bg-white !py-8 sm:!py-12 md:!py-15">
             <EventsSlider />
+          </section>
+
+          <section className="w-9/10 flex flex-col items-center gap-8 bg-white !py-8 sm:!py-12 md:!py-15">
+            <ExpoDestinations />
           </section>
         </div>
       </main>
