@@ -179,7 +179,7 @@ const Events = () => {
         <div className="relative !-mt-15 w-9/10 flex flex-col-reverse lg:flex-row gap-10 bg-white rounded-lg !p-5 md:!p-10 !mb-10">
           <section className="w-full lg:w-3/4 flex flex-col gap-5">
             <div className="flex justify-between">
-              <h3 className="text-gray-700">Total 256 results</h3>
+              <h3 className="text-gray-700">Total {data.length} results</h3>
               <div className="flex gap-8">
                 <h3 className="text-gray-700">1-10 of 256</h3>
                 <button>{"<"}</button>

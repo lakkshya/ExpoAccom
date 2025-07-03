@@ -34,9 +34,11 @@ const EventCard = ({ event }) => {
             </div>
 
             <div>
-              <span className="text-[0.8rem] text-gray-900 font-semibold bg-[rgb(231,231,231)] rounded-md !px-2">
-                {event.industry}
-              </span>
+              {event.industry.map((item, key) => (
+                <span key={key} className="text-[0.8rem] text-gray-900 font-semibold bg-[rgb(231,231,231)] rounded-md !px-2 !mr-1">
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>

@@ -127,11 +127,11 @@ const About = () => {
             </div>
             <div className="w-9/10 md:w-7/10">
               <p className="text-[0.85rem]/6 md:text-[1rem]/7 text-gray-50 text-center">
-                At ExpoAccom, we specialize in providing tailored accommodation
-                solutions for exhibitors attending exhibitions worldwide.
-                Leveraging our extensive network of hotel chains and industry
-                partnerships, we offer a diverse range of options to suit
-                various budgets and preferences.
+                At ExpoAccom, we provide tailored travel and accommodation
+                solutions for exhibitors worldwide. From hotel bookings and
+                flight reservations to visa assistance, tour packages, and local
+                transfers, we offer seamless, end-to-end services designed to
+                simplify your exhibition experience.
               </p>
             </div>
           </div>
@@ -148,11 +148,10 @@ const About = () => {
               </div>
               <div>
                 <p className="text-[0.85rem]/6 md:text-[1rem]/7">
-                  Our mission is to empower businesses with efficient tools to
-                  select, book, and manage their exhibition accommodations in a
-                  customized and user-friendly environment. By streamlining
-                  processes, we enhance efficiency, allowing clients to focus on
-                  their core objectives.
+                  Our mission is to simplify exhibition travel by delivering
+                  seamless solutions for accommodation, flights, visas, local
+                  transfers, and tours — empowering businesses to stay focused
+                  on what matters most.
                 </p>
               </div>
             </div>
@@ -164,11 +163,10 @@ const About = () => {
               </div>
               <div>
                 <p className="text-[0.85rem]/6 md:text-[1rem]/7">
-                  Our vision is to redefine the exhibition accommodation
-                  experience by providing seamless solutions. We aim to create a
-                  future where businesses can effortlessly secure tailored
-                  lodging options, ensuring convenience and productivity at
-                  every step.
+                  Our vision is to become the leading partner for seamless,
+                  end-to-end exhibition travel solutions, making it effortless
+                  for businesses to manage stays, travel, and logistics
+                  worldwide.
                 </p>
               </div>
             </div>

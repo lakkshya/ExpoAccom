@@ -4,15 +4,25 @@ const mongoose = require("mongoose");
 //SUBMIT A CONTACT FORM - POST
 const submitContactForm = async (req, res) => {
   try {
-    const { firstName, lastName, companyName, email, phoneNumber, message } =
-      req.body;
+    const {
+      firstName,
+      lastName,
+      companyName,
+      country,
+      email,
+      phoneNumber,
+      event,
+      message,
+    } = req.body;
 
     const newContact = new Contact({
       firstName,
       lastName,
       companyName,
+      country,
       email,
       phoneNumber,
+      event,
       message,
     });
     await newContact.save();

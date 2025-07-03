@@ -32,50 +32,55 @@ const SingleEvent = () => {
                 alt={event.name}
               />
               <div className="flex flex-col items-center sm:items-start gap-3">
-                <h1 className="inline text-[1.5rem] sm:text-[2.5rem] text-white font-medium">
+                <h1 className="inline text-[1.5rem] sm:text-[2rem] text-white font-medium">
                   {event.title}
                 </h1>
                 <div className="flex items-center gap-2">
-                  <LuMapPin className="text-gray-200 text-[1rem] sm:text-[1.4rem]" />
-                  <span className="text-[1rem] sm:text-[1.2rem] text-gray-200">
+                  <LuMapPin className="text-gray-200 text-[1rem] sm:text-[1.2rem]" />
+                  <span className="text-[1rem] text-gray-200">
                     {event.location}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <LuCalendarDays className="text-gray-200 text-[1rem] sm:text-[1.4rem]" />
+                  <LuCalendarDays className="text-gray-200 text-[1rem] sm:text-[1.2rem]" />
                   <span className="text-[1rem] text-gray-200">
                     {event.startDate} - {event.endDate}
                   </span>
                 </div>
                 <div>
-                  <span className="text-[0.9rem] text-gray-900 font-semibold bg-[#D5E4D8] rounded-md !px-2">
-                    {event.industry}
-                  </span>
+                  {event?.industry?.map((item, index) => (
+                    <span
+                      key={index}
+                      className="text-[0.85rem] text-gray-900 font-medium bg-[#D5E4D8] rounded-md !px-2 !py-1 !mr-1"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
             <div className="flex flex-col gap-2 text-[0.9rem] md:text-[1rem] text-black bg-white !p-3 md:!p-5 rounded-xl">
               <div className="flex gap-5">
-                <span className="md:w-30 font-medium">
-                  Organizer:
-                </span>
-                <span className="">
-                  {event.organizer}
-                </span>
+                <span className="md:w-30 font-medium">Organizer:</span>
+                <span className="">{event.organizer}</span>
               </div>
               <div className="flex gap-5">
-                <span className="md:w-30 font-medium">
-                  Frequency:
-                </span>
-                <span className="">
-                  {event.frequency}
-                </span>
+                <span className="md:w-30 font-medium">Frequency:</span>
+                <span className="">{event.frequency}</span>
               </div>
               <div className="flex gap-5">
-                <span className="md:w-30 font-medium">
-                  Website:
-                </span>
-                <a href={event.website} className="hover:underline cursor-pointer">{event.title} official website</a>
+                <span className="md:w-30 font-medium">Founded In:</span>
+                <span className="">{event.foundedIn}</span>
+              </div>
+              <div className="flex gap-5">
+                <span className="md:w-30 font-medium">Website:</span>
+                <a
+                  href={event.website}
+                  target="_blank"
+                  className="underline cursor-pointer hover:text-gray-500"
+                >
+                  {event.title} official website
+                </a>
               </div>
             </div>
           </div>
@@ -97,7 +102,7 @@ const SingleEvent = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block">
-                      First Name
+                      First Name <span className="text-red-600">*</span>
                     </label>
                     <input
                       type="text"
@@ -132,7 +137,7 @@ const SingleEvent = () => {
                 </div>
                 <div>
                   <label htmlFor="country" className="block">
-                    Country
+                    Country <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="text"
@@ -143,7 +148,7 @@ const SingleEvent = () => {
                 </div>
                 <div>
                   <label htmlFor="email" className="block">
-                    Email Address
+                    Email Address <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="email"
@@ -155,7 +160,7 @@ const SingleEvent = () => {
                 </div>
                 <div>
                   <label htmlFor="phoneno" className="block">
-                    Phone Number
+                    Phone Number <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="tel"
@@ -167,7 +172,7 @@ const SingleEvent = () => {
                 </div>
                 <div>
                   <label htmlFor="event" className="block">
-                    Event
+                    Event <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="text"
@@ -178,30 +183,8 @@ const SingleEvent = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="checkinDate" className="block">
-                    Ckeck-in Date
-                  </label>
-                  <input
-                    type="date"
-                    name="checkinDate"
-                    placeholder="Ckeck-in Date"
-                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="checkoutDate" className="block">
-                    Check-out Date
-                  </label>
-                  <input
-                    type="date"
-                    name="checkoutDate"
-                    placeholder="Ckeck-out Date"
-                    className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
-                  />
-                </div>
-                <div>
                   <label htmlFor="message" className="block">
-                    Message
+                    Message <span className="text-red-600">*</span>
                   </label>
                   <textarea
                     name="message"

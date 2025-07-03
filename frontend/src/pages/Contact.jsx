@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { LuMail, LuPhone, LuBuilding2 } from "react-icons/lu";
 import Navbar from "../components/Navbar";
+import CountrySelectMenu from "../components/contact/CountrySelectMenu";
+import EventSelectMenu from "../components/contact/EventSelectMenu";
 import SuccessBox from "../components/contact/SuccessBox";
 import ErrorBox from "../components/contact/ErrorBox";
 
@@ -10,10 +12,13 @@ const Contact = () => {
     firstName: "",
     lastName: "",
     companyName: "",
+    country: "",
     email: "",
     phoneNumber: "",
+    event: "",
     message: "",
   });
+
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,6 +28,9 @@ const Contact = () => {
 
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required";
+    }
+    if (!formData.country.trim()) {
+      newErrors.country = "Country is required";
     }
     if (!formData.email.trim()) {
       newErrors.email = "Email address is required";
@@ -34,6 +42,9 @@ const Contact = () => {
     } else if (!/^\+\d{7,15}$/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = "Enter a valid phone number";
     }
+    if (!formData.event.trim()) {
+      newErrors.event = "Event is required";
+    }
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
     }
@@ -42,7 +53,9 @@ const Contact = () => {
   };
 
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
   const handleSubmit = async (e) => {
@@ -66,8 +79,10 @@ const Contact = () => {
         firstName: "",
         lastName: "",
         companyName: "",
+        country: "",
         email: "",
         phoneNumber: "",
+        event: "",
         message: "",
       });
       setErrors({});
@@ -156,6 +171,14 @@ const Contact = () => {
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                 </div>
+                <CountrySelectMenu
+                  value={formData.country}
+                  onChange={(country) => {
+                    setFormData((prev) => ({ ...prev, country }));
+                    setErrors((prev) => ({ ...prev, country: undefined }));
+                  }}
+                  error={errors.country}
+                />
                 <div>
                   <label htmlFor="email" className="block">
                     Email Address <span className="text-red-600">*</span>
@@ -174,6 +197,7 @@ const Contact = () => {
                     </p>
                   )}
                 </div>
+
                 <div>
                   <label htmlFor="phoneNumber" className="block">
                     Phone Number <span className="text-red-600">*</span>
@@ -187,7 +211,9 @@ const Contact = () => {
                     className="w-full !p-3 bg-[#f9f9f9] focus:outline-none focus:ring-2 focus:ring-[#0c4c3e] rounded-lg"
                   />
                   {!errors.phoneNumber && (
-                    <p className="text-gray-500 text-[0.78rem] xs:text-[0.85rem] !mt-1">Start with your country code</p>
+                    <p className="text-gray-500 text-[0.78rem] xs:text-[0.85rem] !mt-1">
+                      Start with your country code
+                    </p>
                   )}
                   {errors.phoneNumber && (
                     <p className="text-red-600 text-[0.78rem] xs:text-[0.85rem] !mt-1">
@@ -195,6 +221,15 @@ const Contact = () => {
                     </p>
                   )}
                 </div>
+                <EventSelectMenu
+                  value={formData.event}
+                  onChange={(eventTitle) => {
+                    setFormData((prev) => ({ ...prev, event: eventTitle }));
+                    setErrors((prev) => ({ ...prev, event: undefined }));
+                  }}
+                  error={errors.event}
+                />
+
                 <div>
                   <label htmlFor="message" className="block">
                     Message <span className="text-red-600">*</span>
