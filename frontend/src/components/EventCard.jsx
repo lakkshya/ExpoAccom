@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 const EventCard = ({ event }) => {
   return (
     <Link to={`/events/${event._id}`}>
-      <div className="flex flex-col gap-4 bg-white !px-4 !py-6 border-t-1 border-gray-300">
+      <div className="flex flex-col gap-4 !px-4 !py-6 border-t-1 border-gray-300">
         <div className="flex flex-col xs:items-center sm:flex-row sm:items-center gap-5">
           <div className="w-full xs:w-1/2 sm:w-1/4 lg:w-1/5 h-full">
             <img
               src={event.logo}
               alt={event.title}
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover border border-[#0c4c3e] rounded-lg"
             />
           </div>
           <div className="flex flex-col gap-1 sm:gap-2">

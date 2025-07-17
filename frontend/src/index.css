@@ -68,22 +68,6 @@ body {
   font-style: italic;
 }
 
-.content-html h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-.content-html h3 {
-  font-size: 1.2rem;
-  margin: 20px 0;
-}
-
-.content-html p {
-  font-size: 0.925rem;
-  line-height: 1.8;
-  margin: 10px 0;
-  color: rgb(68, 68, 68);
-}
-
 /* HOME PAGE HERO SECTION DYNAMIC TEXT */
 @keyframes fadeInUp {
   0% {
